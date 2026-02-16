@@ -1,0 +1,273 @@
+/* 
+ * LLEARN LMS - Pixel.io Inspired Dark Design System
+ * Aesthetics: Modern, Deep Navy/Slate, Glow Effects
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-color: #6366F1;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --primary-light: rgba(99, 102, 241, 0.1);
+    --secondary-color: #94A3B8;
+    --success-color: #10B981;
+    --warning-color: #F59E0B;
+    --danger-color: #EF4444;
+    --body-bg: #0F172A;
+    /* Slate 900 */
+    --card-bg: #1E293B;
+    /* Slate 800 */
+    --card-hover: #2D3748;
+    /* Slate 700 */
+    --text-main: #F8FAFC;
+    /* Slate 50 */
+    --text-muted: #CBD5E1;
+    /* Slate 300 (Higher contrast) */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    --border-radius-lg: 16px;
+    --border-radius-md: 10px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    color: var(--text-main);
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(15, 23, 42, 0.8) !important;
+    /* Semi-transparent body-bg */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-main) !important;
+    font-size: 1.5rem;
+}
+
+.navbar-brand span {
+    color: var(--primary-color);
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-main) !important;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 24px;
+    font-weight: 700;
+    border-radius: var(--border-radius-md);
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    box-shadow: 0 4px 14px 0 var(--primary-glow);
+}
+
+.btn-primary:hover {
+    background-color: #4F46E5;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    color: var(--text-main);
+}
+
+.card:hover {
+    background-color: var(--card-hover);
+    transform: translateY(-4px);
+}
+
+.card-header {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem;
+}
+
+/* Stat Cards */
+.dashboard-stat-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #4338CA 100%);
+    border: none;
+}
+
+/* Progress */
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 10px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--primary-light);
+    color: var(--text-main);
+}
+
+.input-group-text {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+/* List Groups */
+.list-group-item {
+    background-color: transparent;
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+
+.list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+}
+
+/* Footer */
+footer {
+    background-color: #0B1120 !important;
+    /* Even deeper navy */
+    border-top: 1px solid var(--border-color);
+}
+
+footer .text-muted {
+    color: var(--text-muted) !important;
+}
+
+footer a.footer-link {
+    color: var(--text-muted) !important;
+}
+
+footer a.footer-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Utilities */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.bg-primary-light {
+    background-color: var(--primary-light) !important;
+}
+
+.bg-card {
+    background-color: var(--card-bg) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up {
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Hero Section Gradient Blur (Pixel.io touch) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: var(--primary-color);
+    filter: blur(150px);
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* Custom Radio (Quiz) */
+.custom-radio .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
