@@ -108,19 +108,28 @@ class AdminController extends Controller {
 
     public function createQuestion($lessonId) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $questionText = $_POST['question_text'];
-            $questionId = $this->lessonModel->createQuestion([
+            $data = [
                 'lesson_id' => $lessonId,
-                'question_text' => $questionText
-            ]);
+                'type' => $_POST['type'],
+                'question_text' => $_POST['question_text'],
+                'audio_url' => $_POST['audio_url'] ?: null,
+                'extra_data' => $_POST['extra_data'] ?: null
+            ];
+            $questionId = $this->lessonModel->createQuestion($data);
 
             if ($questionId) {
                 // Add Options
                 $options = $_POST['options'];
-                $correctIndex = $_POST['correct_option'];
+                $matchKeys = $_POST['match_keys'] ?? [];
+                $correctIndex = $_POST['correct_option'] ?? -1;
                 foreach ($options as $index => $optionText) {
                     if (!empty($optionText)) {
-                        $this->lessonModel->addOption($questionId, $optionText, ($index == $correctIndex));
+                        $this->lessonModel->addOption(
+                            $questionId, 
+                            $optionText, 
+                            ($index == $correctIndex),
+                            $matchKeys[$index] ?? null
+                        );
                     }
                 }
                 header('Location: /admin/manageQuiz/' . $lessonId . '?success=q_created');
@@ -141,14 +150,26 @@ class AdminController extends Controller {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->lessonModel->updateQuestion($questionId, $_POST['question_text']);
+            $data = [
+                'type' => $_POST['type'],
+                'question_text' => $_POST['question_text'],
+                'audio_url' => $_POST['audio_url'] ?: null,
+                'extra_data' => $_POST['extra_data'] ?: null
+            ];
+            $this->lessonModel->updateQuestion($questionId, $data);
             $this->lessonModel->clearOptions($questionId);
 
             $options = $_POST['options'];
-            $correctIndex = $_POST['correct_option'];
+            $matchKeys = $_POST['match_keys'] ?? [];
+            $correctIndex = $_POST['correct_option'] ?? -1;
             foreach ($options as $index => $optionText) {
                 if (!empty($optionText)) {
-                    $this->lessonModel->addOption($questionId, $optionText, ($index == $correctIndex));
+                    $this->lessonModel->addOption(
+                        $questionId, 
+                        $optionText, 
+                        ($index == $correctIndex),
+                        $matchKeys[$index] ?? null
+                    );
                 }
             }
             header('Location: /admin/manageQuiz/' . $question['lesson_id'] . '?success=q_updated');

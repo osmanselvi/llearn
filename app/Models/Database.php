@@ -22,23 +22,29 @@ class Database {
         $this->password = $env['DB_PASS'] ?? '';
     }
 
+    private static $instance = null;
+
     public function getConnection() {
-        $this->conn = null;
+        if (self::$instance !== null) {
+            return self::$instance;
+        }
 
         try {
-            $this->conn = new PDO(
+            self::$instance = new PDO(
                 "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8mb4",
                 $this->username,
                 $this->password
             );
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            self::$instance->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            
+            $this->conn = self::$instance;
         } catch(PDOException $exception) {
             error_log("Bağlantı Hatası: " . $exception->getMessage());
             die("Veritabanı bağlantısı kurulamadı. Lütfen sistem yöneticisine başvurun.");
         }
 
-        return $this->conn;
+        return self::$instance;
     }
 }

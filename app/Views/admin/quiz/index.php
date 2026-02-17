@@ -42,15 +42,23 @@
         <div class="col-12">
             <div class="card border-0 shadow-sm rounded-4 p-4 bg-card">
                 <div class="d-flex justify-content-between align-items-start mb-4">
-                    <h5 class="fw-bold mb-0">
-                        <span class="text-primary me-2">#<?php echo $index + 1; ?></span>
-                        <?php echo htmlspecialchars($question['question_text']); ?>
-                    </h5>
+                    <div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge bg-indigo-soft text-indigo me-2"><?php echo strtoupper($question['type']); ?></span>
+                            <?php if ($question['audio_url']): ?>
+                                <span class="badge bg-success-soft text-success"><i class="fas fa-volume-up"></i></span>
+                            <?php endif; ?>
+                        </div>
+                        <h5 class="fw-bold mb-0">
+                            <span class="text-primary me-2">#<?php echo $index + 1; ?></span>
+                            <?php echo htmlspecialchars($question['question_text']); ?>
+                        </h5>
+                    </div>
                     <div>
                         <a href="/admin/editQuestion/<?php echo $question['id']; ?>" class="btn btn-sm btn-outline-primary me-2">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="/admin/deleteQuestion/<?php echo $question['id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Bu soruyu silmek istediğinize emin misiniz?')">
+                        <a href="/admin/deleteQuestion/<?php echo $question['id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Bu alıştırmayı silmek istediğinize emin misiniz?')">
                             <i class="fas fa-trash"></i>
                         </a>
                     </div>

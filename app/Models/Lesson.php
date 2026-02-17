@@ -84,17 +84,30 @@ class Lesson extends Database {
     }
 
     public function createQuestion($data) {
-        $stmt = $this->db->prepare("INSERT INTO quiz_questions (lesson_id, question_text) VALUES (:lesson_id, :question_text)");
+        $stmt = $this->db->prepare("INSERT INTO quiz_questions (lesson_id, type, question_text, audio_url, extra_data) 
+                                    VALUES (:lesson_id, :type, :question_text, :audio_url, :extra_data)");
         $stmt->execute([
             'lesson_id' => $data['lesson_id'],
-            'question_text' => $data['question_text']
+            'type' => $data['type'] ?? 'multiple_choice',
+            'question_text' => $data['question_text'],
+            'audio_url' => $data['audio_url'] ?? null,
+            'extra_data' => $data['extra_data'] ?? null
         ]);
         return $this->db->lastInsertId();
     }
 
-    public function updateQuestion($id, $text) {
-        $stmt = $this->db->prepare("UPDATE quiz_questions SET question_text = :text WHERE id = :id");
-        return $stmt->execute(['text' => $text, 'id' => $id]);
+    public function updateQuestion($id, $data) {
+        $stmt = $this->db->prepare("UPDATE quiz_questions 
+                                    SET type = :type, question_text = :question_text, 
+                                        audio_url = :audio_url, extra_data = :extra_data 
+                                    WHERE id = :id");
+        return $stmt->execute([
+            'id' => $id,
+            'type' => $data['type'] ?? 'multiple_choice',
+            'question_text' => $data['question_text'],
+            'audio_url' => $data['audio_url'] ?? null,
+            'extra_data' => $data['extra_data'] ?? null
+        ]);
     }
 
     public function deleteQuestion($id) {
@@ -102,12 +115,14 @@ class Lesson extends Database {
         return $stmt->execute(['id' => $id]);
     }
 
-    public function addOption($questionId, $text, $isCorrect) {
-        $stmt = $this->db->prepare("INSERT INTO quiz_options (question_id, option_text, is_correct) VALUES (:question_id, :text, :is_correct)");
+    public function addOption($questionId, $text, $isCorrect, $matchKey = null) {
+        $stmt = $this->db->prepare("INSERT INTO quiz_options (question_id, option_text, is_correct, match_key) 
+                                    VALUES (:question_id, :text, :is_correct, :match_key)");
         return $stmt->execute([
             'question_id' => $questionId,
             'text' => $text,
-            'is_correct' => $isCorrect ? 1 : 0
+            'is_correct' => $isCorrect ? 1 : 0,
+            'match_key' => $matchKey
         ]);
     }
 
