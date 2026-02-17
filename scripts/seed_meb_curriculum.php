@@ -21,6 +21,62 @@ class MEBCurriculumSeeder extends Database {
 
         $curriculum = [
             [
+                'name' => 'MEB 5. Sınıf',
+                'description' => 'Çoklu Yabancı Dil Eğitim Modeli 5. Sınıf (CEFR A1)',
+                'weeks' => [
+                    ['number' => 1, 'title' => 'Unit 1: School Life', 'lessons' => [['title' => 'At School', 'type' => 'video', 'skill_area' => 'Speaking', 'content_text' => 'Introduction to school environments.']]],
+                    ['number' => 2, 'title' => 'Unit 2: Classroom Life', 'lessons' => [['title' => 'My Classroom', 'type' => 'vocabulary']]],
+                    ['number' => 3, 'title' => 'Unit 3: Personal Life', 'lessons' => [['title' => 'Self Introduction', 'type' => 'grammar']]],
+                    ['number' => 4, 'title' => 'Unit 4: Family Life', 'lessons' => [['title' => 'My Family', 'type' => 'text']]],
+                    ['number' => 5, 'title' => 'Unit 5: Life in the Neighbourhood & City', 'lessons' => [['title' => 'My Street', 'type' => 'reading']]],
+                    ['number' => 6, 'title' => 'Unit 6: Life in the World', 'lessons' => [['title' => 'Around the World', 'type' => 'video']]],
+                    ['number' => 7, 'title' => 'Unit 7: Life in Nature', 'lessons' => [['title' => 'Animals & Plants', 'type' => 'vocabulary']]],
+                    ['number' => 8, 'title' => 'Unit 8: Life in the Universe & Future', 'lessons' => [['title' => 'Space Quiz', 'type' => 'quiz', 'questions' => [['text' => 'What color is the sun?', 'options' => [['text' => 'Blue', 'correct' => 0], ['text' => 'Yellow', 'correct' => 1]]]]]]]
+                ]
+            ],
+            [
+                'name' => 'MEB 6. Sınıf',
+                'description' => 'Çoklu Yabancı Dil Eğitim Modeli 6. Sınıf (CEFR A2)',
+                'weeks' => [
+                    ['number' => 1, 'title' => 'Unit 1: School Life', 'lessons' => [['title' => 'School Roles', 'type' => 'text']]],
+                    ['number' => 2, 'title' => 'Unit 2: Classroom Life', 'lessons' => [['title' => 'Classroom Rules', 'type' => 'video']]],
+                    ['number' => 3, 'title' => 'Unit 3: Personal Life', 'lessons' => [['title' => 'Daily Routines', 'type' => 'grammar']]],
+                    ['number' => 4, 'title' => 'Unit 4: Family Life', 'lessons' => [['title' => 'Home Sweet Home', 'type' => 'vocabulary']]],
+                    ['number' => 5, 'title' => 'Unit 5: Life in the Neighbourhood & City', 'lessons' => [['title' => 'City Life', 'type' => 'reading']]],
+                    ['number' => 6, 'title' => 'Unit 6: Life in the World & Culture', 'lessons' => [['title' => 'Cultural Festivals', 'type' => 'video']]],
+                    ['number' => 7, 'title' => 'Unit 7: Life in Nature & Global Problems', 'lessons' => [['title' => 'Save the Planet', 'type' => 'infographic']]],
+                    ['number' => 8, 'title' => 'Unit 8: Life in the Universe & Future', 'lessons' => [['title' => 'Future Tech Quiz', 'type' => 'quiz', 'questions' => [['text' => 'Will robots study for us?', 'options' => [['text' => 'Yes maybe', 'correct' => 1], ['text' => 'No never', 'correct' => 0]]]]]]]
+                ]
+            ],
+            [
+                'name' => 'MEB 7. Sınıf',
+                'description' => 'Çoklu Yabancı Dil Eğitim Modeli 7. Sınıf (CEFR A2+)',
+                'weeks' => [
+                    ['number' => 1, 'title' => 'Unit 1: School Life & Education', 'lessons' => [['title' => 'Learning Styles', 'type' => 'video']]],
+                    ['number' => 2, 'title' => 'Unit 2: Classroom Life & Learning', 'lessons' => [['title' => 'Digital Learning', 'type' => 'vocabulary']]],
+                    ['number' => 3, 'title' => 'Unit 3: Personal Life & Well-being', 'lessons' => [['title' => 'Healthy Habits', 'type' => 'grammar']]],
+                    ['number' => 4, 'title' => 'Unit 4: Family Life & Home', 'lessons' => [['title' => 'Relationship', 'type' => 'text']]],
+                    ['number' => 5, 'title' => 'Unit 5: Neighbourhood & Social Life', 'lessons' => [['title' => 'Social Clubs', 'type' => 'reading']]],
+                    ['number' => 6, 'title' => 'Unit 6: World & Culture', 'lessons' => [['title' => 'Ancient Civilizations', 'type' => 'video']]],
+                    ['number' => 7, 'title' => 'Unit 7: Nature', 'lessons' => [['title' => 'Wildlife Protection', 'type' => 'vocabulary']]],
+                    ['number' => 8, 'title' => 'Unit 8: Universe & Future', 'lessons' => [['title' => 'Future Cities Quiz', 'type' => 'quiz', 'questions' => [['text' => 'Can we live on Mars?', 'options' => [['text' => 'Yes, in progress', 'correct' => 1], ['text' => 'No, impossible', 'correct' => 0]]]]]]]
+                ]
+            ],
+            [
+                'name' => 'MEB 8. Sınıf',
+                'description' => 'Çoklu Yabancı Dil Eğitim Modeli 8. Sınıf (CEFR B1)',
+                'weeks' => [
+                    ['number' => 1, 'title' => 'Unit 1: School Life & Education', 'lessons' => [['title' => 'High School Entrance', 'type' => 'text']]],
+                    ['number' => 2, 'title' => 'Unit 2: Classroom Life & Learning', 'lessons' => [['title' => 'Study Strategies', 'type' => 'video']]],
+                    ['number' => 3, 'title' => 'Unit 3: Personal Life & Well-being', 'lessons' => [['title' => 'Mental Health', 'type' => 'grammar']]],
+                    ['number' => 4, 'title' => 'Unit 4: Family Life & Home', 'lessons' => [['title' => 'Family Traditions', 'type' => 'vocabulary']]],
+                    ['number' => 5, 'title' => 'Unit 5: Neighbourhood & Social Life', 'lessons' => [['title' => 'Civic Responsibility', 'type' => 'reading']]],
+                    ['number' => 6, 'title' => 'Unit 6: World and Culture', 'lessons' => [['title' => 'Art & Literature', 'type' => 'video']]],
+                    ['number' => 7, 'title' => 'Unit 7: Nature & Global Problems', 'lessons' => [['title' => 'Climate Change', 'type' => 'infographic']]],
+                    ['number' => 8, 'title' => 'Unit 8: Universe & Future', 'lessons' => [['title' => 'AI Ethics Quiz', 'type' => 'quiz', 'questions' => [['text' => 'Is AI dangerous?', 'options' => [['text' => 'If mismanaged', 'correct' => 1], ['text' => 'Always', 'correct' => 0]]]]]]]
+                ]
+            ],
+            [
                 'name' => 'MEB 9. Sınıf',
                 'description' => 'Maarif Modeli 9. Sınıf İngilizce Müfredatı (CEFR B1.1)',
                 'weeks' => [
