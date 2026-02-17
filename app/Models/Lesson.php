@@ -158,4 +158,14 @@ class Lesson extends Database {
         $stmt = $this->db->prepare($sql);
         return $stmt->execute(['user_id' => $userId, 'lesson_id' => $lessonId]);
     }
+
+    public function submitQuizAttempt($userId, $lessonId, $score) {
+        $stmt = $this->db->prepare("INSERT INTO user_quiz_attempts (user_id, lesson_id, score, completed_at) 
+                                    VALUES (:user_id, :lesson_id, :score, NOW())");
+        return $stmt->execute([
+            'user_id' => $userId,
+            'lesson_id' => $lessonId,
+            'score' => $score
+        ]);
+    }
 }
